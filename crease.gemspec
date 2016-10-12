@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Matt Cloyd"]
   spec.email         = ["cloydster@gmail.com"]
 
-  spec.summary       = %q{Generate text about increasing and decreasing numbers.}
+  spec.summary       = %q{Generate dynamic text about increasing and decreasing numbers.}
   spec.description   = %q{
     If you're writing a dynamic, data-driven narrative, you might need to have
     text like "an increase of 10%" or "decreased by 2", depending on parameters.
