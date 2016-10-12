@@ -1,13 +1,15 @@
 # Crease
 
+Generate dynamic text about increasing and decreasing numbers.
+
 ## Usage
 
 Let's say you're writing a dynamic report that needs to put data in context,
 explaining it in simple English.
 
-You want to tell the world that total population in Boston increased, and that
-the total population in Worcester decreased, but want to write one template that
-takes in data from each city and displays the right text.
+You want to tell the world that thetotal population of Boston increased, and
+that the total population in Pittsburgh decreased, but you only want to write
+one template that takes in data from each city and displays the right text.
 
 With Crease, you can write:
 
@@ -18,15 +20,25 @@ With Crease, you can write:
   <%= increased.by @city.population_in_2000, @city.population_in_2010 %>,
   <%= an.increase.of(@city.population_in_2000, @city.population_in_2010).percent %>,
 <p>
+```
 
-# For Boston, this evaluates to:
+For Boston, this evaluates to:
 
+```
 <p>
   In Boston, the total population increased by 30,018, an increase of 105%.
 <p>
 ```
 
 > Note: we think that '105%' here is misleading: see the roadmap for more.
+
+For Pittsburgh, the same template evaluates to:
+
+```
+<p>
+  In Pittsburgh, the total population decreased by 28,068, an decrease of 8.4%.
+<p>
+```
 
 #### Examples
 
@@ -36,11 +48,13 @@ The following are examples of text you can write with Crease.
 # In the context of a template
 
 increased.by(1)            #=> 'increased by 1.0'
+increased.by(-1)           #=> 'decreased by 1.0'
 increased.by(2, 4)         #=> 'increased by 2.0'
-decreased.by(1)            #=> 'increased by 1.0'
 decreased.by(2, 4)         #=> 'increased by 2.0'
+  # `#decreased` is just an alias for `#increased`
 increased.by(1).percent    #=> 'increased by 1.0%'
 increased.by(2, 4).percent #=> 'increased by 200.0%'
+  # kind of misleading, will change in next release
 an.increase.of(2)          #=> 'an increase of 2.0'
 ```
 
