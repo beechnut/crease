@@ -8,11 +8,15 @@ module Crease
     alias_method :decreased, :increased
 
     def an
-      Crease::Builder.new(context: :an)
+      Crease::Builder.new(before: :an)
     end
 
     def a
-      Crease::Builder.new(context: :a)
+      Crease::Builder.new(before: :a)
+    end
+
+    def changed
+      Crease::Builder.new(subject: :change, tense: :past)
     end
 
   end
